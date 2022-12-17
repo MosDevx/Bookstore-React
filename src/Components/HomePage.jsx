@@ -2,7 +2,7 @@ import BookList from "./BookList";
 import AddNewBook from "./AddNewBook";
 
 
-export default function HomePage(){
+const HomePage =()=>{
 	return(
 		<div div className="container m-auto">
 
@@ -13,3 +13,5 @@ export default function HomePage(){
 
 	)
 }
+
+export default HomePage

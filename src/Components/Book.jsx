@@ -1,7 +1,7 @@
 import React from 'react'
 import CircularProgress from '@mui/material/CircularProgress';
 
-export default function Book({title,author}){
+const Book = ({title,author})=>{
 
 	return(
 		<>
@@ -41,3 +41,5 @@ export default function Book({title,author}){
 		</>
 	)
 }
+
+export default Book

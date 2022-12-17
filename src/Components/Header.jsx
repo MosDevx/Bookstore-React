@@ -1,7 +1,7 @@
 import {Link} from "react-router-dom"
 
 
-export default function Header(){
+const Header =()=>{
 		return (
 	
 				<div className="flex justify-between w-full items-center h-16 border-2 p-2">
@@ -21,3 +21,5 @@ export default function Header(){
 
 		)
 }
+
+export default Header

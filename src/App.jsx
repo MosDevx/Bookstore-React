@@ -7,7 +7,8 @@ import Header from './Components/Header'
 import Categories from './Components/Categories'
 import {Routes,Route} from "react-router-dom"
 
-function App() {
+
+const App = ()=> {
 
 
   return (

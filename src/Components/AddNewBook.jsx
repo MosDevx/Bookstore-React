@@ -1,6 +1,6 @@
 
 
-export default function AddNewBook(){
+const AddNewBook = ()=>{
 		return(
 			<div className="flex w-full h-28 justify-between flex-col border-t-2 p-2">
 				<h2 className="text-left ">ADD NEW BOOK</h2>
@@ -13,3 +13,5 @@ export default function AddNewBook(){
 			</div>
 		)
 }
+
+export default AddNewBook

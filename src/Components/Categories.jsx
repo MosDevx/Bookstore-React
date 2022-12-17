@@ -1,5 +1,5 @@
 
-export default function Categories(){
+const  Categories = () =>{
 
 	return(
 
@@ -8,3 +8,5 @@ export default function Categories(){
 	</div>
 	)
 }
+
+export default Categories

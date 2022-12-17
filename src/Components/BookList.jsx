@@ -1,7 +1,7 @@
 import Book from './Book'
 
 
-export default function BookList(){
+const BookList = ()=>{
 
 	return(
 		<>
@@ -13,3 +13,5 @@ export default function BookList(){
 
 	)
 }
+
+export default BookList
