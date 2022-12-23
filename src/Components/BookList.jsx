@@ -10,7 +10,7 @@ const BookList = ()=>{
 		<>
 			{
 				books.map(book=>{
-					console.log("book",book);
+					// console.log("book",book);
 					return <Book key={book.id} title={book.title} author={book.author} id={book.id}/>
 				})
 			}
