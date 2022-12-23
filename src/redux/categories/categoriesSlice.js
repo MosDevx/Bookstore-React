@@ -7,13 +7,11 @@ export const categoriesSlice = createSlice({
   name: 'categories',
   initialState,
   reducers: {
-    checkStatus: (state,action) =>{ 
-			return 'Under Construction'},
+    checkStatus: () => 'Under Construction',
   },
 });
 
-
-export const selectStatus = state => state.categories
+export const selectStatus = (state) => state.categories;
 
 export const { checkStatus } = categoriesSlice.actions;
 

@@ -1,7 +1,7 @@
 import { createSlice, nanoid } from '@reduxjs/toolkit';
 
 const initialState = {
-  booksList: [{title:"Casino Royale",author:"Ian Fleming",id:1},{title:"Monsoon",author:"Wilbur Smith",id:2}],
+  booksList: [{ title: 'Casino Royale', author: 'Ian Fleming', id: 1 }, { title: 'Monsoon', author: 'Wilbur Smith', id: 2 }],
 };
 
 export const booksSlice = createSlice({
@@ -29,7 +29,7 @@ export const booksSlice = createSlice({
   },
 });
 
-export const selectBooks = (state) => state.books.booksList
+export const selectBooks = (state) => state.books.booksList;
 
 export const { addBook, deleteBook } = booksSlice.actions;
 
