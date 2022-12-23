@@ -4,7 +4,7 @@ import AddNewBook from "./AddNewBook";
 
 const HomePage =()=>{
 	return(
-		<div div className="container m-auto">
+		<div className="container m-auto">
 
 		<BookList />
 		<AddNewBook />
