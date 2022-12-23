@@ -1,7 +1,7 @@
 import { createSlice, nanoid } from '@reduxjs/toolkit';
 
 const initialState = {
-  books: [],
+  booksList: [],
 };
 
 export const booksSlice = createSlice({
@@ -10,7 +10,7 @@ export const booksSlice = createSlice({
   reducers: {
     addBook: {
       reducer(state, action) {
-        state.books.push(action.payload);
+        state.booksList.push(action.payload);
       },
       prepare(title, author) {
         return {
@@ -23,10 +23,12 @@ export const booksSlice = createSlice({
       },
     },
     deleteBook: (state, action) => {
-      state.books = state.books.filter((book) => book.id !== action.payload);
+      state.booksList = state.booksList.filter((book) => book.id !== action.payload);
     },
   },
 });
+
+export const selectBooks = (state) => state.books.booksList
 
 export const { addBook, deleteBook } = booksSlice.actions;
 
