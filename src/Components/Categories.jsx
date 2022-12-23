@@ -8,7 +8,6 @@ const  Categories = () =>{
 	const status = useSelector(selectStatus)
 
 	const onCheckStatusButtonClick = (e)=>{
-		console.log("handler called")
 		dispatch(checkStatus())
 	}
 	return(
