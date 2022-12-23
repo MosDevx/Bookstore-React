@@ -1,14 +1,12 @@
-import { createStore, applyMiddleware, combineReducers } from 'redux';
-import createLogger from 'redux-logger';
-import todo from './modules/todo'
+import { configureStore } from '@reduxjs/toolkit';
+import booksReducer from './books/books';
+import categoriesReducer from './categories/categories';
 
-const loggerMiddleware = createLogger(); // initialize logger
+export default configureStore({
+  reducer: {
 
-const createStoreWithMiddleware = applyMiddleware(loggerMiddleware)(createStore); // apply logger to redux
+    books: booksReducer,
+    categories: categoriesReducer,
 
-const reducer = combineReducers({
-  todo,
+  },
 });
-
-const configureStore = (initialState) => createStoreWithMiddleware(reducer, initialState);
-export default configureStore;
