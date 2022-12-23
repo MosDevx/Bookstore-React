@@ -1,7 +1,7 @@
 import React from 'react'
 import CircularProgress from '@mui/material/CircularProgress';
 
-const Book = ({title,author})=>{
+const Book = ({title,author,id})=>{
 
 	return(
 		<>
@@ -14,8 +14,8 @@ const Book = ({title,author})=>{
 					{/* Details */}
 					<div className='flex flex-col pl-10 text-left'>
 							<span>Action</span>
-							<span>The Hunger Games</span>
-							<span>Suzanne Collins</span>
+							<span>{title}</span>
+							<span>{author}</span>
 
 							<div>
 								<button>Comments</button>

@@ -43,7 +43,7 @@ const AddNewBook = ()=>{
 			<div className="flex w-full h-28 justify-between flex-col border-t-2 p-2">
 				<h2 className="text-left ">ADD NEW BOOK</h2>
 				<Snackbar 
-		
+					anchorOrigin={{vertical:"bottom",horizontal:"center"}}
 					open={open}
 					autoHideDuration={1800}
 					onClose={handleClose}
@@ -53,7 +53,7 @@ const AddNewBook = ()=>{
 					<input type="text" placeholder="Book Title"  value={title} onChange={onTitleChanged}/>
 					<input type="text" placeholder="Author" value={author} onChange={onAuthorChanged}/>
 
-					<button className="border w-32" onClick={onAddBookClicked}>ADD BOOK</button>
+					<button className="border w-32 bg-green-300 text-lg font-bold" onClick={onAddBookClicked}>ADD BOOK</button>
 				 </form>
 			</div>
 		)

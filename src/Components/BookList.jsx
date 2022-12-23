@@ -5,13 +5,15 @@ import {selectBooks} from '../redux/books/booksSlice'
 
 const BookList = ()=>{
 	const books = useSelector(selectBooks)
-	console.log(books);
+	// console.log(books);
 	return(
 		<>
-		<Book />
-		<Book />
-		<Book />
-		<Book />
+			{
+				books.map(book=>{
+					console.log("book",book);
+					return <Book key={book.id} title={book.title} author={book.author} id={book.id}/>
+				})
+			}
 		</>
 
 	)
