@@ -1,6 +1,6 @@
 import { createSlice, nanoid, createAsyncThunk } from '@reduxjs/toolkit';
 
-const BOOK_URL = "https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/xBZyEErO2xc5gxLcugVF/books"
+const BOOK_URL = "https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/xBZyEErO2xc5gxLcugVF/books/"
 
 const initialState = {
   booksList: [{ title: 'Casino Royale', author: 'Ian Fleming', item_id: 1 }, { title: 'Monsoon', author: 'Wilbur Smith', item_id: 2 }],
@@ -24,7 +24,7 @@ export const booksSlice = createSlice({
   
   
     deleteBook: (state, action) => {
-      state.booksList = state.booksList.filter((book) => book.id !== action.payload);
+      state.booksList = state.booksList.filter((book) => book.item_id !== action.payload);
     },
 
   },
@@ -92,6 +92,13 @@ export const fetchBooksApi = createAsyncThunk('books/fetchBooksApi', async ()=>{
 })
 
 export const deleteBookApi = createAsyncThunk('books/deleteBookApi', async(params,{dispatch})=>{
+  console.log(params);
   dispatch(deleteBook(params))
   //! Async logic here
+  let response = await fetch(BOOK_URL+params, {
+    method:'DELETE'
+  })
+
+  let data = response.json()
+  console.log(data)
 })

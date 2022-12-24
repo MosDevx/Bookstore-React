@@ -3,11 +3,11 @@ import CircularProgress from '@mui/material/CircularProgress';
 import { useDispatch } from 'react-redux';
 import { deleteBookApi } from '../redux/books/booksSlice';
 
-const Book = ({title,author,id,category})=>{
+const Book = ({title,author,item_id,category})=>{
 	const dispatch = useDispatch()
 
 	const onRemoveButtonClicked = (id)=>{
-		// console.log('RemoveButtonCalled',id)
+		console.log('RemoveButtonCalled',id)
 		dispatch(deleteBookApi(id))
 	}
 
@@ -30,7 +30,7 @@ const Book = ({title,author,id,category})=>{
 
 							<div className='space-x-4'>
 								<button className='border p-1 font-bold'>Comments</button>
-								<button className='border p-1 font-bold' onClick={()=>onRemoveButtonClicked(id)}>Remove</button>
+								<button className='border p-1 font-bold' onClick={()=>onRemoveButtonClicked(item_id)}>Remove</button>
 								<button className='border p-1 font-bold' >Edit</button>
 							</div>
 					</div>
