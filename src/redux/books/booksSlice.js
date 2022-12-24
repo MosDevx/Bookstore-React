@@ -1,7 +1,9 @@
 import { createSlice, nanoid, createAsyncThunk } from '@reduxjs/toolkit';
 
+const BOOK_URL = "https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/xBZyEErO2xc5gxLcugVF/books"
+
 const initialState = {
-  booksList: [{ title: 'Casino Royale', author: 'Ian Fleming', id: 1 }, { title: 'Monsoon', author: 'Wilbur Smith', id: 2 }],
+  booksList: [{ title: 'Casino Royale', author: 'Ian Fleming', item_id: 1 }, { title: 'Monsoon', author: 'Wilbur Smith', item_id: 2 }],
 
   status: 'idle',
   error: null,
@@ -34,7 +36,7 @@ export const booksSlice = createSlice({
       })
       .addCase(fetchBooksApi.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.booksList = action.payload;
+        state.booksList = [...action.payload];
       })
       .addCase(fetchBooksApi.rejected, (state, action) => {
         state.status = 'failed';
@@ -52,21 +54,41 @@ export default booksSlice.reducer;
 export const addBookApi = createAsyncThunk('books/addBookApi', async (params, {dispatch}) => {
   console.log(params)
   let newBook = {
-    id: nanoid(),
+    item_id: nanoid(),
     title:params.title,
     author:params.author,
     category: getCategory(),
   }
+
+  console.log("New Book Object",newBook)
   
   dispatch(addBook(newBook))
 
   //! Endpoint logic here
-  // const response = await
+  const response = await fetch(BOOK_URL,{
+    method:'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body:JSON.stringify(newBook)
+  })
+
+  return response.json()
 
 });
 
 export const fetchBooksApi = createAsyncThunk('books/fetchBooksApi', async ()=>{
-  //do thigs hee
+    let booksArray  = []
+  const response = await fetch(BOOK_URL)
+    const data = await response.json()
+    // console.log(data);
+    console.log("fetchBooksApi called");
+    for (const [key,value] of Object.entries(data)){
+      booksArray.push({item_id:key, title:value[0].title,author:value[0].author, category:value[0].category})
+    }
+    
+    return booksArray
 })
 
 export const deleteBookApi = createAsyncThunk('books/deleteBookApi', async(params,{dispatch})=>{
