@@ -50,7 +50,7 @@ export const { addBook, deleteBook } = booksSlice.actions;
 export default booksSlice.reducer;
 
 export const addBookApi = createAsyncThunk('books/addBookApi', async (params, {dispatch}) => {
-
+  console.log(params)
   let newBook = {
     id: nanoid(),
     title:params.title,
@@ -70,7 +70,6 @@ export const fetchBooksApi = createAsyncThunk('books/fetchBooksApi', async ()=>{
 })
 
 export const deleteBookApi = createAsyncThunk('books/deleteBookApi', async(params,{dispatch})=>{
-  console.log("deleteBookApi called")
   dispatch(deleteBook(params))
   //! Async logic here
 })

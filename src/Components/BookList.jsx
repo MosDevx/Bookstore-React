@@ -7,14 +7,14 @@ const BookList = ()=>{
 	const books = useSelector(selectBooks)
 	// console.log(books);
 	return(
-		<>
+		<div className='overflow-auto max-h-[600px]'>
 			{
 				books.map(book=>{
 					// console.log("book",book);
 					return <Book key={book.id} {...book}/>
 				})
 			}
-		</>
+		</div>
 
 	)
 }

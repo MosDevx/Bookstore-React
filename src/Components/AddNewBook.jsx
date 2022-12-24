@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux"
-import { addBook } from "../redux/books/booksSlice"
+import { addBookApi } from "../redux/books/booksSlice"
 import { useState } from "react"
 
 import Snackbar  from "@mui/material/Snackbar"
@@ -30,7 +30,7 @@ const AddNewBook = ()=>{
 		event.preventDefault()
 		if(title && author){
 			
-			dispatch(addBook(title,author))
+			dispatch(addBookApi({title,author}))
 			setOpen(true)
 			setTitle('')
 			setAuthor('')
