@@ -10,7 +10,7 @@ const initialState = {
 };
 
 const getCategory = () => {
-  const categories = ['Fiction', 'Biography', 'Science', 'Drama', 'Romance'];
+  const categories = ['Fiction', 'Biography', 'Science', 'Drama', 'Romance', 'Science-Fiction', 'Children Lit'];
   return categories[Math.floor(Math.random() * categories.length)];
 };
 
@@ -21,7 +21,7 @@ export const fetchBooksApi = createAsyncThunk('books/fetchBooksApi', async () =>
   // console.log(data);
   // for (const [key, value] of Object.entries(data)) {
 
-  Object.entries(data).forEach((key, value) => {
+  Object.entries(data).forEach(([key, value]) => {
     booksArray.push({
       item_id: key, title: value[0].title, author: value[0].author, category: value[0].category,
     });
