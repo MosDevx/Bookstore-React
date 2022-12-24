@@ -13,7 +13,7 @@ const Book = ({title,author,item_id,category})=>{
 	return(
 		<>
 		{/* main-div */}
-		<div className=" flex border-2 h-36 m-2 items-center">
+		<div className=" flex border-2 h-36 m-2 items-center bg-white">
 
 				{/*First half - Details and complete Icon */}
 			<div className='w-3/4 flex justify-between'>

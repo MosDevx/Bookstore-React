@@ -40,7 +40,7 @@ const AddNewBook = ()=>{
 
 
 		return(
-			<div className="flex w-full h-28 justify-between flex-col border-t-2 border-black p-2 mt-2">
+			<div className="flex w-full h-28 justify-between flex-col border-t-2 border-black bg-white p-2 mt-2">
 				<h2 className="text-left  uppercase text-slate-500 font-extrabold text-3xl">ADD NEW BOOK</h2>
 				<Snackbar 
 					anchorOrigin={{vertical:"bottom",horizontal:"center"}}
@@ -53,7 +53,7 @@ const AddNewBook = ()=>{
 					<input type="text" placeholder="Book Title"  value={title} onChange={onTitleChanged}/>
 					<input type="text" placeholder="Author" value={author} onChange={onAuthorChanged}/>
 
-					<button className="border w-32 bg-blue-400 text-white text-lg font-bold" onClick={onAddBookClicked}>ADD BOOK</button>
+					<button className="border w-32 bg-blue-500 text-white text-lg font-bold" onClick={onAddBookClicked}>ADD BOOK</button>
 				 </form>
 			</div>
 		)

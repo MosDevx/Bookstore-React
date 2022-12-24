@@ -14,7 +14,7 @@ const App = ()=> {
 
 
   return (
-    <div >
+    <div className='mt-4 container m-auto border bg-slate-50' >
       <Header/>
 
       <Routes>
