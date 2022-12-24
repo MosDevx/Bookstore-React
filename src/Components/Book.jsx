@@ -1,15 +1,19 @@
 import React from 'react'
 import CircularProgress from '@mui/material/CircularProgress';
 import { useDispatch } from 'react-redux';
-import { deleteBook } from '../redux/books/booksSlice';
+import { deleteBook ,fetchBooks} from '../redux/books/booksSlice';
 
-const Book = ({title,author,id})=>{
+const Book = ({title,author,id,category})=>{
 	const dispatch = useDispatch()
 
 	const onRemoveButtonClicked = (id)=>{
 		// console.log('RemoveButtonCalled',id)
 		dispatch(deleteBook(id))
 	}
+
+	// const onEditButtonClicked = ()=>{
+	// 	dispatch(fetchBooks())
+	// }
 	return(
 		<>
 		{/* main-div */}
@@ -20,14 +24,14 @@ const Book = ({title,author,id})=>{
 
 					{/* Details */}
 					<div className='flex flex-col pl-10 text-left'>
-							<span>Action</span>
+							<span>{category}</span>
 							<span>{title}</span>
 							<span>{author}</span>
 
 							<div className='space-x-4'>
 								<button className='border p-1 font-bold'>Comments</button>
 								<button className='border p-1 font-bold' onClick={()=>onRemoveButtonClicked(id)}>Remove</button>
-								<button className='border p-1 font-bold'>Edit</button>
+								<button className='border p-1 font-bold' onClick={onEditButtonClicked}>Edit</button>
 							</div>
 					</div>
 
