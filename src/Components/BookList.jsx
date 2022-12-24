@@ -10,7 +10,7 @@ const BookList = ()=>{
 	return(
 		<div className='overflow-auto h-[550px]  '>
 
-		<div className='flex flex-col-reverse '>
+		<div className='flex flex-col-reverse items-center'>
 			{
 				books.map(book=>{
 					// console.log("book",book);
