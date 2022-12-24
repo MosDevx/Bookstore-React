@@ -18,8 +18,6 @@ export const fetchBooksApi = createAsyncThunk('books/fetchBooksApi', async () =>
   const booksArray = [];
   const response = await fetch(BOOK_URL);
   const data = await response.json();
-  // console.log(data);
-  // for (const [key, value] of Object.entries(data)) {
 
   Object.entries(data).forEach(([key, value]) => {
     booksArray.push({

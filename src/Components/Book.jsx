@@ -10,9 +10,6 @@ const Book = ({title,author,item_id,category})=>{
 		dispatch(deleteBookApi(id))
 	}
 
-	// const onEditButtonClicked = ()=>{
-	// 	dispatch(fetchBooks())
-	// }
 	return(
 		<>
 		{/* main-div */}
