@@ -7,7 +7,6 @@ const Book = ({title,author,item_id,category})=>{
 	const dispatch = useDispatch()
 
 	const onRemoveButtonClicked = (id)=>{
-		console.log('RemoveButtonCalled',id)
 		dispatch(deleteBookApi(id))
 	}
 
@@ -25,8 +24,8 @@ const Book = ({title,author,item_id,category})=>{
 					{/* Details */}
 					<div className='flex flex-col pl-10 text-left'>
 							<span>{category}</span>
-							<span>{title}</span>
-							<span>{author}</span>
+							<span className='capitalize font-bold'>{title}</span>
+							<span className='capitalize'>{author}</span>
 
 							<div className='space-x-4'>
 								<button className='border p-1 font-bold'>Comments</button>
