@@ -16,21 +16,11 @@ export const booksSlice = createSlice({
   name: 'books',
   initialState,
   reducers: {
-    addBook: {
-      reducer(state, action) {
+    addBook: (state, action) => {
         state.booksList.push(action.payload);
       },
-      prepare(title, author) {
-        return {
-          payload: {
-            id: nanoid(),
-            title,
-            author,
-            category: getCategory(),
-          },
-        };
-      },
-    },
+  
+  
     deleteBook: (state, action) => {
       state.booksList = state.booksList.filter((book) => book.id !== action.payload);
     },
@@ -39,14 +29,14 @@ export const booksSlice = createSlice({
 
   extraReducers(builder) {
     builder
-      .addCase(fetchBooks.pending, (state, action) => {
+      .addCase(fetchBooksApi.pending, (state, action) => {
         state.status = 'loading';
       })
-      .addCase(fetchBooks.fulfilled, (state, action) => {
+      .addCase(fetchBooksApi.fulfilled, (state, action) => {
         state.status = 'succeeded';
         state.booksList = action.payload;
       })
-      .addCase(fetchBooks.rejected, (state, action) => {
+      .addCase(fetchBooksApi.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message;
       });
@@ -59,7 +49,28 @@ export const { addBook, deleteBook } = booksSlice.actions;
 
 export default booksSlice.reducer;
 
-export const fetchBooks = createAsyncThunk('books/fetchBooks', async (dispatch) => {
+export const addBookApi = createAsyncThunk('books/addBookApi', async (params, {dispatch}) => {
+
+  let newBook = {
+    id: nanoid(),
+    title:params.title,
+    author:params.author,
+    category: getCategory(),
+  }
+  
+  dispatch(addBook(newBook))
+
+  //! Endpoint logic here
   // const response = await
-  dispatch(addBook("Hey","Ho"))
+
 });
+
+export const fetchBooksApi = createAsyncThunk('books/fetchBooksApi', async ()=>{
+  //do thigs hee
+})
+
+export const deleteBookApi = createAsyncThunk('books/deleteBookApi', async(params,{dispatch})=>{
+  console.log("deleteBookApi called")
+  dispatch(deleteBook(params))
+  //! Async logic here
+})
