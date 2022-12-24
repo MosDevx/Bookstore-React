@@ -40,8 +40,8 @@ const AddNewBook = ()=>{
 
 
 		return(
-			<div className="flex w-full h-28 justify-between flex-col border-t-2 p-2">
-				<h2 className="text-left ">ADD NEW BOOK</h2>
+			<div className="flex w-full h-28 justify-between flex-col border-t-4 border-slate-400 bg-white p-2 mt-2">
+				<h2 className="text-left  uppercase text-slate-600 font-extrabold text-3xl">ADD NEW BOOK</h2>
 				<Snackbar 
 					anchorOrigin={{vertical:"bottom",horizontal:"center"}}
 					open={open}
@@ -50,10 +50,10 @@ const AddNewBook = ()=>{
 					message="Book Added !!"
 />
 				 <form className="flex w-8/12 justify-between" action="">
-					<input type="text" placeholder="Book Title"  value={title} onChange={onTitleChanged}/>
-					<input type="text" placeholder="Author" value={author} onChange={onAuthorChanged}/>
+					<input className="hover:border-blue-400 border-2 border-slate-300" type="text" placeholder="Book Title"  value={title} onChange={onTitleChanged}/>
+					<input className="hover:border-blue-400 border-2 border-slate-300" type="text" placeholder="Author" value={author} onChange={onAuthorChanged}/>
 
-					<button className="border w-32 bg-green-300 text-lg font-bold" onClick={onAddBookClicked}>ADD BOOK</button>
+					<button className="border w-32 bg-blue-500 hover:bg-blue-600 text-white text-lg font-bold" onClick={onAddBookClicked}>ADD BOOK</button>
 				 </form>
 			</div>
 		)

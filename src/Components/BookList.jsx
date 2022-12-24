@@ -8,9 +8,9 @@ const BookList = ()=>{
 	const books = useSelector(selectBooks)
 	// console.log(books);
 	return(
-		<div className='overflow-auto h-[600px]  '>
+		<div className='overflow-auto h-[550px]  '>
 
-		<div className='flex flex-col-reverse '>
+		<div className='flex flex-col-reverse items-center'>
 			{
 				books.map(book=>{
 					// console.log("book",book);

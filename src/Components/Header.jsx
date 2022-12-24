@@ -1,18 +1,19 @@
 import {Link} from "react-router-dom"
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 
 const Header =()=>{
 		return (
 	
-				<div className="flex justify-between w-full items-center h-16 border-2 p-2">
-						<div className="w-1/2 flex justify-evenly text-2xl">
-								<h2>Bookstore CMS</h2>
-								<Link to={'/home'} >Books</Link>
-								<Link to={'/categories'}>Categories</Link>
+				<div className="flex justify-between container m-auto items-center h-24 bg-white border-b-2 p-2">
+						<div className="w-1/2 flex justify-evenly text-2xl items-center">
+								<h2 className="text-5xl font-bold text-blue-500">Bookstore CMS</h2>
+								<Link className='text-slate-500 hover:text-black' to={'/home'} >Books</Link>
+								<Link className='text-slate-500 hover:text-black' to={'/categories'}>Categories</Link>
 						</div>
 						
 						<div>
-							<span>FaceIcon</span>
+							<AccountCircleIcon fontSize="large" color='primary'/>
 						</div>
 	
 	
